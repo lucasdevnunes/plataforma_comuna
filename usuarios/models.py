@@ -19,6 +19,9 @@ class UsuarioManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
     
+    def get_by_natural_key(self, email):
+        return self.get(email=email)
+    
 class Usuario(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     nome_completo = models.CharField(max_length=150)
@@ -28,9 +31,9 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
 
-    objects = UsuarioManager
+    objects = UsuarioManager()
 
-    USERNAME_FIELD = 'emil'
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['nome_completo']
 
     def __str__(self):

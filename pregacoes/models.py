@@ -1,6 +1,6 @@
 from django.db import models
 
-class Pregacoes(models.Model):
+class Pregacao(models.Model):
     titulo = models.CharField(max_length=200)
     audio = models.TextField()
     descricao = models.TextField()

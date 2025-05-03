@@ -1,6 +1,6 @@
 from django.db import models
 
-class Artigos(models.Model):
+class Artigo(models.Model):
     titulo = models.CharField(max_length=200)
     conteudo = models.TextField()
     autor = models.CharField(max_length=200)

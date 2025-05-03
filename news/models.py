@@ -1,6 +1,6 @@
 from django.db import models
 
-class News(models.Model):
+class New(models.Model):
     titulo = models.CharField(max_length=200)
     resumo = models.TextField()
     conteudo = models.TextField()
